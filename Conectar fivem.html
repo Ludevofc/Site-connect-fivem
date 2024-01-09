@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar ao Servidor FiveM</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://media-rockstargames-com.akamaized.net/tina-uploads/posts/ak73k92o47ko75/5de9d8bc4ffeabb209ec67ab3721ea281da5cd05.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #777;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Rodapé */
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #777;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .github-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>NOME DO SEU SERVIDOR</h2>
+        <form>
+            <label for="playerName">Nome do Jogador:</label>
+            <input type="text" id="playerName" name="playerName" placeholder="Digite seu nome no jogo" required>
+
+            <button type="button" onclick="confirmConnection()">Conectar</button>
+        </form>
+
+        <p>Antes de conectar, certifique-se de ler as <a href="#rules">regras do servidor</a>.</p>
+
+        <div id="rules">
+            <h3>Regras do Servidor</h3>
+            <ol>
+                <li>Respeite outros jogadores.</li>
+                <li>Não use linguagem ofensiva.</li>
+                <li>...</li>
+                <!-- Adicione mais regras conforme necessário -->
+            </ol>
+        </div>
+
+        <p>Entre também no nosso servidor Discord: <a href="[URL do Discord]" target="_blank">Discord</a></p>
+
+        <div class="footer">
+            <a href="https://github.com/ludevofc" target="_blank">
+                <img class="github-icon" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png?s=32&v=4" alt="Ícone do GitHub">
+                ludevofc
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function confirmConnection() {
+            var playerName = document.getElementById('playerName').value;
+
+            if (playerName.trim() === "") {
+                alert('Digite seu nome antes de conectar.');
+                return;
+            }
+
+            // Perguntar ao usuário se deseja realmente conectar
+            var confirmResult = confirm('Deseja realmente conectar ao servidor?');
+
+            if (confirmResult) {
+                // Lógica de conexão ao servidor FiveM aqui...
+                // Exemplo: window.location.href = 'fivem://connect/SEUIP' + '?playerName=' + playerName;
+                window.location.href = 'fivem://connect/SEUIP' + '?playerName=' + playerName;
+            }
+        }
+    </script>
+</body>
+</html>
